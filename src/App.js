@@ -292,8 +292,8 @@ function App() {
     }))
   }
 
-  function cadastrarTime(novoTime){
-    setTimes([...times, { ...novoTime, id: uuidv4() } ]);
+  function cadastrarTime({nome, cor}){
+    setTimes([...times, { nome, cor, id: uuidv4() } ]);
   }
 
   function resolverFavorito(id){
@@ -306,7 +306,7 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <Formulario 
+      <Formulario aoCriarTime={cadastrarTime} 
       times={times.map(time => time.nome)} 
       aoColaboradorCadastrado={colaborador => aoNovoColaboradorAdicionado(colaborador)} />
       {times.map((time, indice) =>
@@ -316,7 +316,6 @@ function App() {
           time={time}
           colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)}
           mudarCor={mudarCorDoTime}
-          cadastrarTime={cadastrarTime}
           aoDeletar={deletarColaborador}
         />)}
       <Footer />

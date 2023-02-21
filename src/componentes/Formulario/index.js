@@ -65,7 +65,7 @@ const Formulario = (props) => {
             </form>
             <form className='formulario' onSubmit={(evento) => {
                 evento.preventDefault();
-                props.cadastrarTime({ nome: nomeTime, cor: corTime });
+                props.aoCriarTime({ nome: nomeTime, cor: corTime })
             }}>
                 <h2>Preencha os dados para criar um novo time</h2>
                 <Campo
